@@ -1,0 +1,2 @@
+class Automaker < ApplicationRecord
+end
