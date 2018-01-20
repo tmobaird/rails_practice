@@ -149,6 +149,9 @@ _Note: To get this to work the foreign key database column in `Car` must be corr
 of the association. In this case, the cars table should have a column `automotive_company_id`._
 
 - For more information about belongs_to: [Belongs To - Rails Guides](http://guides.rubyonrails.org/association_basics.html#belongs-to-association-reference)
-- Model Code from this example [here]()
-- Specs for this example [here]()
-- Migrations for this example [here]()
+- Model Code from this example [here](https://github.com/tmobaird/rails_practice/blob/master/app/models/car.rb)
+- Specs for this example [here](https://github.com/tmobaird/rails_practice/blob/master/spec/models/car_spec.rb)
+- Migrations for this example:
+  - [Cars](https://github.com/tmobaird/rails_practice/blob/master/db/migrate/20180120005607_create_cars.rb)
+  - [Automaker](https://github.com/tmobaird/rails_practice/blob/master/db/migrate/20180120005729_create_automakers.rb)
+  - [Add Automaker Id to Cars](https://github.com/tmobaird/rails_practice/blob/master/db/migrate/20180120011347_add_automaker_references_to_cars.rb)
