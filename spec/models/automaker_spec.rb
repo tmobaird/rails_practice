@@ -3,5 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe Automaker, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'has_many' do
+    it 'Start Here'
+  end
 end

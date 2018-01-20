@@ -122,6 +122,32 @@ column must exist in the database. This is as easy as creating a migration that 
 - The following are a list of extra options that can be passed to belongs_to (`:autosave, :class_name, :counter_cache,
 :dependent, :foreign_key, :primary_key, :inverse_of, :polymorphic, :touch, :validate, :optional`)
 
+**`:class_name`**
+
+This options allows you to specify a class name that the belongs_to association actual maps to
+with a different accessor name. Example:
+
+```ruby
+class Car < ApplicationRecord
+  belongs_to :automotive_company, class_name: 'Automaker'
+end
+```
+
+An RSpec test that would pass & verify behavior:
+
+```ruby
+it 'belongs to a automotive_company' do
+  company = Automaker.create(name: 'Ford', year_founded: 1805)
+  subject = Car.create(name: 'Focus', year: 2015, automotive_company: company)
+
+  expect(subject.automotive_company).to eq(company)
+  expect(subject.automotive_company.class).to eq(Automaker)
+end
+```
+
+_Note: To get this to work the foreign key database column in `Car` must be correct. It should map to the name
+of the association. In this case, the cars table should have a column `automotive_company_id`._
+
 - For more information about belongs_to: [Belongs To - Rails Guides](http://guides.rubyonrails.org/association_basics.html#belongs-to-association-reference)
 - Model Code from this example [here]()
 - Specs for this example [here]()
