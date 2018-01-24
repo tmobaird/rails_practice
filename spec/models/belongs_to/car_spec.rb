@@ -39,4 +39,24 @@ RSpec.describe BelongsTo::Car, type: :model do
       expect(automaker.persisted?).to be_truthy
     end
   end
+
+  describe '_automaker' do
+    it 'returns same thing has belongs to' do
+      owner = Automaker.create(name: 'Ford', year_founded: 1805)
+      subject = Car.create(name: 'Focus', year: 2015, automaker: owner)
+
+      expect(subject.automaker).to eq(subject._automaker)
+    end
+  end
+
+  describe '_automaker=' do
+    it 'sets automaker' do
+      automaker = Automaker.create(name: 'Ford', year_founded: 1805)
+      subject = Car.create(name: 'Focus', year: 2015)
+
+      subject._automaker = automaker
+
+      expect(subject.automaker).to eq(automaker)
+    end
+  end
 end
