@@ -15,13 +15,6 @@ ActiveRecord::Schema.define(version: 20180123050910) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "automakers", force: :cascade do |t|
-    t.string "name"
-    t.integer "year_founded"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "bt_automakers", force: :cascade do |t|
     t.string "name"
     t.integer "year_founded"
@@ -38,13 +31,5 @@ ActiveRecord::Schema.define(version: 20180123050910) do
     t.index ["automaker_id"], name: "index_bt_cars_on_automaker_id"
   end
 
-  create_table "cars", force: :cascade do |t|
-    t.string "name"
-    t.integer "year"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "automaker_id"
-    t.index ["automaker_id"], name: "index_cars_on_automaker_id"
-  end
-
+  add_foreign_key "bt_cars", "bt_automakers", column: "automaker_id"
 end

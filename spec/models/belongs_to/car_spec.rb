@@ -42,8 +42,8 @@ RSpec.describe BelongsTo::Car, type: :model do
 
   describe '_automaker' do
     it 'returns same thing has belongs to' do
-      owner = Automaker.create(name: 'Ford', year_founded: 1805)
-      subject = Car.create(name: 'Focus', year: 2015, automaker: owner)
+      owner = BelongsTo::Automaker.create(name: 'Ford', year_founded: 1805)
+      subject = BelongsTo::Car.create(name: 'Focus', year: 2015, automaker: owner)
 
       expect(subject.automaker).to eq(subject._automaker)
     end
@@ -51,8 +51,8 @@ RSpec.describe BelongsTo::Car, type: :model do
 
   describe '_automaker=' do
     it 'sets automaker' do
-      automaker = Automaker.create(name: 'Ford', year_founded: 1805)
-      subject = Car.create(name: 'Focus', year: 2015)
+      automaker = BelongsTo::Automaker.create(name: 'Ford', year_founded: 1805)
+      subject = BelongsTo::Car.create(name: 'Focus', year: 2015)
 
       subject._automaker = automaker
 
