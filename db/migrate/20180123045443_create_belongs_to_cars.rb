@@ -1,6 +1,6 @@
-class CreateCars < ActiveRecord::Migration[5.1]
+class CreateBelongsToCars < ActiveRecord::Migration[5.1]
   def change
-    create_table :cars do |t|
+    create_table :bt_cars do |t|
       t.string :name
       t.integer :year
 

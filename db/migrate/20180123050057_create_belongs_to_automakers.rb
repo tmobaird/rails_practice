@@ -1,6 +1,6 @@
-class CreateAutomakers < ActiveRecord::Migration[5.1]
+class CreateBelongsToAutomakers < ActiveRecord::Migration[5.1]
   def change
-    create_table :automakers do |t|
+    create_table :bt_automakers do |t|
       t.string :name
       t.integer :year_founded
 
