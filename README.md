@@ -1,5 +1,7 @@
 # Rails Practice
 
+[![Build Status](https://travis-ci.org/tmobaird/rails_practice.svg?branch=master)](https://travis-ci.org/tmobaird/rails_practice)
+
 This project is dedicated to my personal practice with Ruby on Rails.
 Each example in this project should include a description and link in the readme or any associated docs.
 
