@@ -1,0 +1,11 @@
+language: ruby
+rvm:
+- 2.4.1
+script:
+  - bundle exec rake db:drop db:setup
+  - bundle exec rake spec
+cache: bundler
+services:
+  - postgresql
+addons:
+  postgresql: "9.6"
