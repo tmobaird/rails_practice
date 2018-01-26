@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180123050910) do
+ActiveRecord::Schema.define(version: 20180126042404) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,5 +31,23 @@ ActiveRecord::Schema.define(version: 20180123050910) do
     t.index ["automaker_id"], name: "index_bt_cars_on_automaker_id"
   end
 
+  create_table "hm_posts", force: :cascade do |t|
+    t.string "title"
+    t.text "body"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_hm_posts_on_user_id"
+  end
+
+  create_table "hm_users", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.date "birthday"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   add_foreign_key "bt_cars", "bt_automakers", column: "automaker_id"
+  add_foreign_key "hm_posts", "hm_users", column: "user_id"
 end
